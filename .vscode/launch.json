@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Debug Project",
+            "type": "lldb",
+            "request": "launch",
+            "preLaunchTask": "build debug executable",
+            "program": "${workspaceFolder}/letter_debug",
+            "stdio": [
+                "${workspaceFolder}/larger-simple.txt", // redirect stdin
+                null, // redirect stdout
+                null // redirect stderr
+            ],
+            "args": [
+                "--stack",
+                "--begin",
+                "test",
+                "--end",
+                "a",
+                "-c",
+                "-l",
+                "-p",
+                "-o",
+                "W",
+                "<",
+                "larger-simple.txt"
+            ],
+            "stopOnEntry": false,
+            "cwd": "${workspaceFolder}",
+            "postDebugTask": "clean workspace"
+        },
+    ]
+}
